@@ -1,56 +1,8 @@
 # react-native-bluetooth-headset-detect
 
-Bluetooth Headset Detection for React Native
+Ce package a été Fork afin d'utiliser la modification apportée par @gregorispielmann pour corriger un bug sur les SDK Android inférieur à 23 qui n'incluent pas la class Android instanciée par le package.
 
-## Getting started
+Ce dossier Github n'z pour vocation d'être utilisé uniquement dans le cadre de l'application PiloteDepenses (présente sur le présent compte Github en dossier privée).
 
-`$ npm install react-native-bluetooth-headset-detect --save`
-
-### If you use react-native < 0.60
-
-`$ react-native link react-native-bluetooth-headset-detect`
-
-## Usage
-### With React hooks:
-```javascript
-import { useBluetoothHeadsetDetection } from 'react-native-bluetooth-headset-detect';
-
-const MyComponent = () => {
-  const device = useBluetoothHeadsetDetection();
-  return (
-    <Text>Connected headset: {device}</Text>
-  );
-};
-```
-### Without React hooks:
-```javascript
-import {
-  getHeadset,
-  addListener,
-  removeListener,
-} from 'react-native-bluetooth-headset-detect';
-
-console.log('Connected device:', getHeadset());
-addListener((device) => {
-  console.log('Connected device:', device);
-});
-```
-## Legacy (not recommended):
-```javascript
-import { NativeEventEmitter, NativeModules } from "react-native";
-
-const BluetoothHeadsetDetectModule = NativeModules.RNBluetoothHeadsetDetect;
-const bluetoothHeadsetDetectEmitter = new NativeEventEmitter(
-  BluetoothHeadsetDetectModule
-);
-bluetoothHeadsetDetectEmitter.addListener("onChange", ({ devices }) => {
-  if (devices.length) {
-    console.log("Connected device:", devices[0]);
-  } else {
-    console.log("No devices connected");
-  }
-});
-```
-
-## Demo project
-[https://github.com/alexkorep/react-native-bluetooth-headset-detect-demo](https://github.com/alexkorep/react-native-bluetooth-headset-detect-demo)
+Si vous souhaitez utiliser cette modification du package , merci de vous rendre directement sur le repository suivant https://github.com/gregorispielmann/react-native-bluetooth-headset-detect.
+Pour utiliser le package initial merci de vous rendre sur le repository suivant : https://github.com/alexkorep/react-native-bluetooth-headset-detect
